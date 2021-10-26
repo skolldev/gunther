@@ -1,10 +1,13 @@
-import { ReactElement } from "react";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
+import Head from "next/head";
+import { ReactElement } from "react";
 
 export default function Login() {
   return (
     <>
+      <Head>
+        <title>Gunther | Login</title>
+      </Head>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h1 className="font-mono text-center text-6xl font-extrabold text-blue-800">
