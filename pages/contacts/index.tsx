@@ -18,38 +18,35 @@ export default function ContactList(props: any) {
           </a>
         </Link>
       </PageHeaderWithActions>
-      {isLoading && (
-        <div className="h-full flex justify-center items-center font-extrabold text-6xl">
-          Loading...
-        </div>
-      )}
-      {!isLoading && (
-        <div className="flex flex-col flex-1 py-6 overflow-y-hidden">
-          <div className="overflow-x-auto flex flex-1">
-            <div className="py-1 align-middle min-w-full sm:px-6 lg:px-8 flex flex-1">
-              <div className="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg flex-1">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50 sticky top-0">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                      >
-                        Birthday
-                      </th>
-                      <th scope="col" className="relative px-6 py-3">
-                        <span className="sr-only">View</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {data?.map((contact) => (
+      <div className="flex flex-col flex-1 py-6 overflow-y-hidden">
+        <div className="overflow-x-auto flex flex-1">
+          <div className="py-1 align-middle min-w-full sm:px-6 lg:px-8 flex flex-1">
+            <div className="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg flex-1">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50 sticky top-0">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Birthday
+                    </th>
+                    <th scope="col" className="relative px-6 py-3">
+                      <span className="sr-only">View</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {isLoading ? (
+                    <div>Loading...</div>
+                  ) : (
+                    data?.map((contact) => (
                       <tr key={contact.id}>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
@@ -77,14 +74,14 @@ export default function ContactList(props: any) {
                           </Link>
                         </td>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </Content>
   );
 }
