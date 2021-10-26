@@ -11,7 +11,9 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
   switch (req.method) {
     case "GET":
-      const contactList = await prisma.contact.findMany();
+      const contactList = await prisma.contact.findMany({
+        where: { userId: session.userId as string }
+      });
       res.status(200).json(contactList);
       break;
     case "POST":

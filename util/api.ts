@@ -10,7 +10,7 @@ export const createContact = (data: Pick<Contact, "firstName">) =>
   instance.post<Contact>("/api/contacts", data).then((res) => res.data);
 
 export const getContact = (id: string) =>
-  instance.get<Contact>(`api/contacts/${id}`).then((res) => res.data);
+  instance.get<Contact>(`/api/contacts/${id}`).then((res) => res.data);
 
 export const deleteContact = (id: string) =>
-  instance.delete(`api/contacts/${id}`);
+  instance.delete(`/api/contacts/${id}`);

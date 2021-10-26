@@ -4,27 +4,20 @@ import { useQuery } from "react-query";
 import { Contact } from "@prisma/client";
 import InitialsPlaceholder from "../../components/InitialsPlaceholder";
 import { getAllContacts } from "../../util/api";
+import PageHeaderWithActions from "../../components/PageHeaderWithActions";
 
 export default function ContactList(props: any) {
   const { data, isLoading } = useQuery<Contact[]>("contacts", getAllContacts);
 
   return (
-    <Content pageTitle="Contacts">
-      <div className="md:flex md:items-center md:justify-between bg-white p-6">
-        <div className="flex-1 min-w-0">
-          <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-            Kontakte
-          </h2>
-        </div>
-        <div className="mt-4 flex md:mt-0 md:ml-4">
-          <Link href="contacts/new">
-            <a className="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Create new contact
-            </a>
-          </Link>
-        </div>
-      </div>
-
+    <Content pageTitle="Kontakte">
+      <PageHeaderWithActions pageTitle="Kontakte">
+        <Link href="contacts/new">
+          <a className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Create new contact
+          </a>
+        </Link>
+      </PageHeaderWithActions>
       {isLoading && (
         <div className="h-full flex justify-center items-center font-extrabold text-6xl">
           Loading...
@@ -32,11 +25,11 @@ export default function ContactList(props: any) {
       )}
       {!isLoading && (
         <div className="flex flex-col flex-1 py-6 overflow-y-hidden">
-          <div className="overflow-x-auto ">
-            <div className="align-middle inline-block min-w-full sm:px-6 lg:px-8">
-              <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="overflow-x-auto flex flex-1">
+            <div className="py-1 align-middle min-w-full sm:px-6 lg:px-8 flex flex-1">
+              <div className="shadow overflow-y-auto border-b border-gray-200 sm:rounded-lg flex-1">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-gray-50 sticky top-0">
                     <tr>
                       <th
                         scope="col"
