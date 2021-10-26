@@ -4,11 +4,6 @@ const securityHeaders = [
     value: "on"
   },
   {
-    key: "Content-Security-Policy",
-    value:
-      "script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:; object-src 'none'; base-uri 'none'; require-trusted-types-for 'script';"
-  },
-  {
     key: "X-Frame-Options",
     value: "SAMEORIGIN"
   },
