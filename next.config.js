@@ -5,7 +5,7 @@ const securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
-    value: "http: https:; object-src 'none'; base-uri 'none';"
+    value: "object-src 'none'; base-uri 'none';"
   },
   {
     key: "X-Frame-Options",
@@ -17,7 +17,7 @@ const securityHeaders = [
   },
   {
     key: "Referrer-Policy",
-    value: "origin-when-cross-origin"
+    value: "strict-origin-when-cross-origin"
   },
   {
     key: "Permissions-Policy",
