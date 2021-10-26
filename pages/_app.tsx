@@ -48,7 +48,7 @@ function Auth({ children }: any) {
   React.useEffect(() => {
     if (status === "loading") return; // Do nothing while loading
     if (!isUser) router.push("/login"); // If not authenticated, return to login
-  }, [isUser, status]);
+  }, [isUser, status, router]);
 
   if (isUser) {
     return children;
