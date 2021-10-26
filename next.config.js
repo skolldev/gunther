@@ -4,6 +4,10 @@ const securityHeaders = [
     value: "on"
   },
   {
+    key: "Content-Security-Policy",
+    value: "http: https:; object-src 'none'; base-uri 'none';"
+  },
+  {
     key: "X-Frame-Options",
     value: "SAMEORIGIN"
   },
@@ -16,7 +20,7 @@ const securityHeaders = [
     value: "origin-when-cross-origin"
   },
   {
-    key: "Permission-Policy",
+    key: "Permissions-Policy",
     value: "microphone=(),geolocation=*"
   }
 ];
